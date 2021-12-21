@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Veiculo #{{data.id===null? "": data.id}} </h1>
+
+<div mat-dialog-content>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Marca</mat-label>
+    <input matInput #marca placeholder="" [(ngModel)]="data.marca">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>Modelo</mat-label>
+    <input matInput #modelo placeholder="" [(ngModel)]="data.modelo">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>Descrição</mat-label>
+    <input matInput #descricao placeholder="" [(ngModel)]="data.descricao">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ano</mat-label>
+    <input matInput #ano maxlength="4" placeholder="2000" [(ngModel)]="data.ano">
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Vendido</mat-label>
+    <select matNativeControl #vendido required [(ngModel)]="data.vendido">
+      <option value=false>Não</option>
+      <option value=true>Sim</option>
+    </select>
+  </mat-form-field>
+
+
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
